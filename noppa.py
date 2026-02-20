@@ -167,7 +167,7 @@ while running:
                             val = yatzee.uppercategories[i][2]
                         elif i in yatzee.lowercategories:
                             val = yatzee.lowercategories[i][2]
-                        if val is not None and val != "-":
+                        if val is not None and val != "-" and i != "Yahtzee":
                             break
                         # feed current dice values to model and record score
                         values = [d.number for d in dice_list]
