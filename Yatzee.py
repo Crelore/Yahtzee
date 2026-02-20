@@ -98,9 +98,14 @@ class Yatzee():
 
         
     def specialcases(self, category):
+        #Täällä hoidetaan Yahtzee ja Full House, jotka ovat vähän erikoisia
+        #Ensin tarkistetaan onko boonus Yatzee tehty.
+        if category == "Yahtzee" and self.lowercategories[category][2] != ("-") and self.lowercategories[category][2] != (0):
+            if self.dice.count(self.dice[0]) >= 5:
+                self.lowercategories[category][2] += 100
+                return
         self.cheatcheck(category, self.lowercategories)
         self.lowercategories[category][2] = 0
-        #Täällä hoidetaan Yahtzee ja Full House, jotka ovat vähän erikoisia
         if category == "Yahtzee":
             if self.dice.count(self.dice[0]) >= 5:
                 self.lowercategories[category][2] = 50
